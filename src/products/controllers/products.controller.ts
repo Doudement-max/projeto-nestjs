@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, } from '@nestjs/common';
+import { IProducts } from '../ditos/index';
 import { ProdutcsService } from '../services/products.service';
 
 @Controller()
 export class ProdutcsController {
-  constructor(private readonly produtsService: ProdutcsService) {}
+  constructor(private readonly produtcsService: ProdutcsService) {}
 
   @Get()
-  findAll(): string {
-    return this.produtsService.findAll();
-  }
+  findAll(): IProducts[] {
+    return this.produtcsService.findAll();
+  } 
 }
