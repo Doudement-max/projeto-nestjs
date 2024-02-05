@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { ProdutcsController } from './products/controllers/products.controller';
-import { ProdutcsService } from './products/services/products.service';
+import { PerfilController } from './modules/perfil/controlador/perfil.controller';
+import { PerfilService } from './modules/perfil/servico/perfil.service';
+import { UsersController } from './modules/users/controlador/users.controller';
+import { UsersService } from './modules/users/servicos/users.service';
 
 @Module({
   imports: [],
-  controllers: [ProdutcsController],
-  providers: [ProdutcsService],
+  controllers: [PerfilController && UsersController],
+  providers: [PerfilService && UsersService],
 })
 export class ProductsModules {}
