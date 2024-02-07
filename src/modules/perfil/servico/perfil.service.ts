@@ -1,20 +1,23 @@
+// perfil.service.ts
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class PerfilService {
-    private dados: any[] = []; 
+  private perfis = [];
 
-    createPerfil(dado: any) {
-        this.dados.push(dado);
-    }
-    findAll() {
-        return this.dados;
-    } 
-    update(id: number, dado: any) {
-        this.dados[id] = dado;
-    }
-    delete(id: number) {
-        this.dados = this.dados.filter((_, i) => i !== id);
-    }
+  create(perfil) {
+    this.perfis.push(perfil);
+  }
+
+  findAll() {
+    return this.perfis;
+  }
+
+  update(id: number, perfil: any) {
+    this.perfis[id] = perfil;
+  }
+
+  delete(id: number) {
+    this.perfis = this.perfis.filter((_, i) => i !== id);
+  }
 }
-
