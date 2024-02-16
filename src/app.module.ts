@@ -9,4 +9,4 @@ import { UsersService } from './modules/users/servicos/users.service';
   controllers: [PerfilController && UsersController],
   providers: [PerfilService && UsersService],
 })
-export class ProductsModules {}
+export class AppModule {}
