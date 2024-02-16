@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { PerfilController } from '../controlador';
-import { PerfilService } from '../servico';
+import { PerfilController } from './controlador';
+import { PerfilService } from './servico';
 
 
 @Module({
