@@ -1,0 +1,87 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "API com Swagger",
+      "description": "API para demonstrar como criar dois CRUDs com Swagger"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Resource1",
+        "description": "Operações CRUD para Resource1"
+      },
+      {
+        "name": "Resource2",
+        "description": "Operações CRUD para Resource2"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/resource1": {
+        "get": {
+          "tags": ["Resource1"],
+          "summary": "Obter todos os Resource1",
+          "responses": {
+            "200": {
+              "description": "Operação bem-sucedida",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Resource1"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/resource2": {
+        "get": {
+          "tags": ["Resource2"],
+          "summary": "Obter todos os Resource2",
+          "responses": {
+            "200": {
+              "description": "Operação bem-sucedida",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Resource2"
+                }
+              }
+            }
+          }
+        }
+    
+      }
+    },
+    "definitions": {
+      "Resource1": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "Resource2": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+  
