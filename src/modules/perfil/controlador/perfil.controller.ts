@@ -1,7 +1,8 @@
-/*import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiTags, ApiOperation,ApiResponse, ApiBody } from '@nestjs/swagger';
 import { PerfilService } from '../servico/perfil.service';
 import { CreatePerfilDto } from 'src/dto/create-perfil';
+
 @ApiTags('perfil')
 @Controller('perfil')
 export class PerfilController {
@@ -34,32 +35,14 @@ export class PerfilController {
   delete(@Param('id') id: number) {
     this.perfilService.delete(id);
   }
+  
 }
-*/
 
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { ApiTags, ApiOperation,ApiResponse, ApiBody } from '@nestjs/swagger';
-import { PerfilService } from '../servico/perfil.service';
-@ApiTags('perfil')
-@Controller('perfil')
-export class PerfilController {
-    constructor(private readonly perfilService: PerfilService) {} 
-
-    @Post()
-    create(@Body() perfil: any) {
-        this.perfilService.create(perfil);
-    }
-    @Get()
-    findAll() {
-        return this.perfilService.findAll();
-    }
-    @Put(':id') 
-    update(@Param('id') id: number, @Body() perfil: any) {
-        this.perfilService.update(id, perfil);
-    }
-    @Delete('id')
-
-    delete(@Param('id') id: number){
-        this.perfilService.delete(id);
-    }
+@ApiTags('tag1')
+@Controller('rota1')
+export class RptalController {
+  @Get()
+  getHello(): string {
+    return 'Olá mundo do Rota2Controller!';
+  }
 }

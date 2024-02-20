@@ -24,3 +24,4 @@ export class UsersController {
         this.usersService.delete(id);
     }
 }
+
