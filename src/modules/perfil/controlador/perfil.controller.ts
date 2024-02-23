@@ -21,7 +21,7 @@ export class PerfilController {
 
   @Get()
   @ApiOperation({summary: 'Retonra todos os perfis'})
-  @ApiResponse({status: 200, description: 'Operação bem-sucedida.'})
+  @ApiResponse({status: 201, description: 'Operação bem-sucedida.'})
   findAll() {
     return this.perfilService.findAll();
   }
@@ -38,11 +38,3 @@ export class PerfilController {
   
 }
 
-@ApiTags('tag1')
-@Controller('rota1')
-export class RptalController {
-  @Get()
-  getHello(): string {
-    return 'Olá mundo do Rota2Controller!';
-  }
-}
