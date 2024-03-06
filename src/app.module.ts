@@ -1,23 +1,26 @@
-import {Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import {ConfigModule, ConfigService} from '@nestjs/config'
 import { PerfilController } from './modules/perfil/controlador/perfil.controller';
-import { PerfilService } from './modules/perfil/servico/perfil.service';
-import { UsersController } from './modules/users/controlador/users.controller';
-import { UsersService } from './modules/users/servicos/users.service';
+import { PerfilService } from './modules/perfil/servico';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
-  imports: [ 
-    MongooseModule.forRoot('mongo://localhost/nest'),
-    ConfigModule.forRoot({
-      isGlobal: true,
-    })
+  controllers: [PerfilController],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    UsersModule,
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get<string>('MONGODB_URI') || 'mongodb://localhost:27017/nestdb',
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }),
+    }),
   ],
-  controllers: [PerfilController, UsersController],
-  providers: [PerfilService, UsersService],
+  providers: [PerfilService],
 })
-export class AppModule { 
-  constructor(private configService: ConfigService) {
-     const dbUser = this.configService.get<string>('DATABASE_USER');
-  }
-}
+export class AppModule {}
+

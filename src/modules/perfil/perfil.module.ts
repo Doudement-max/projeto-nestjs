@@ -8,3 +8,8 @@ import { ApiTags } from '@nestjs/swagger';
   controllers: [PerfilController]
 })
 export class PerfilModule {}
+
+/*import { Module } from '@nestjs/common';
+
+@Module({})
+export class UsersModule {}*/
