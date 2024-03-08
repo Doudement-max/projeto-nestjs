@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { PerfilController } from './modules/perfil/controlador/perfil.controller';
-import { PerfilService } from './modules/perfil/servico';
+import { RoleController } from './modules/role/controller/perfil.controller';
+import { RoleService } from './modules/role/service';
 import { UsersModule } from './modules/users/users.module';
 
 @Module({
-  controllers: [PerfilController],
+  controllers: [RoleController],
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     UsersModule,
@@ -20,7 +20,7 @@ import { UsersModule } from './modules/users/users.module';
       }),
     }),
   ],
-  providers: [PerfilService],
+  providers: [RoleService],
 })
 export class AppModule {}
 

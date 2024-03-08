@@ -1,39 +1,39 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiTags, ApiOperation,ApiResponse, ApiBody } from '@nestjs/swagger';
-import { PerfilService } from '../servico/perfil.service';
-import { CreatePerfilDto } from 'src/dto/create-perfil';
+import { RoleService } from '../service/perfil.service';
+import { CreateRoleDto } from 'src/dto/create-perfil';
 
-@ApiTags('perfil')
-@Controller('perfil')
-export class PerfilController {
-  constructor(private readonly perfilService: PerfilService) {} 
+@ApiTags('role')
+@Controller('role')
+export class RoleController {
+  constructor(private readonly roleService: RoleService) {} 
 
   @Post() 
   
   @ApiOperation({summary: 'Cria um novo perfil'})
-  @ApiBody({type: CreatePerfilDto})
+  @ApiBody({type: CreateRoleDto})
   @ApiResponse({status: 201, description: 'O perfil foi criado com sucesso.'})
   @ApiResponse({status: 400, description:'Requisição inválida'})
   
-  create(@Body() perfil: any) {
-    this.perfilService.create(perfil);
+  create(@Body() role: any) {
+    this.roleService.create(role);
   }
 
   @Get()
   @ApiOperation({summary: 'Retonra todos os perfis'})
   @ApiResponse({status: 201, description: 'Operação bem-sucedida.'})
   findAll() {
-    return this.perfilService.findAll();
+    return this.roleService.findAll();
   }
 
   @Put(':id')
-  update(@Param('id') id: number, @Body() perfil: any) {
-    this.perfilService.update(id, perfil);
+  update(@Param('id') id: number, @Body() role: any) {
+    this.roleService.update(id, role);
   }
 
   @Delete(':id')
   delete(@Param('id') id: number) {
-    this.perfilService.delete(id);
+    this.roleService.delete(id);
   }
   
 }

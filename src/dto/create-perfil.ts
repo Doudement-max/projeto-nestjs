@@ -1,3 +1,3 @@
-export class CreatePerfilDto{
+export class CreateRoleDto{
     // ...
 }
