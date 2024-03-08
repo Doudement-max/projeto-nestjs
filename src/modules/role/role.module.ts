@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { RoleController } from './controller/perfil.controller';
-import { RoleService } from './service';
+import { RoleController } from './controller/role.controller';
+import { RoleService } from './service/role.service';
 import { ApiTags } from '@nestjs/swagger';
 
 @Module({
